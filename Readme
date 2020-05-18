@@ -9,24 +9,24 @@ Map id3 from (Yourmap/maps) and add these lines. Make sure you add them to the p
 	Add these lines to bottom of list.
    #example <Files>
     		<File fileId="99999998" filename="mud/dirty.xml"/>      *ONLY ADD THIS LINE to existing list  - not this note*
-   		 <File fileId="99999999" filename="mud/distance/dirt_diffuse2dist.png"/>       *ONLY ADD THIS LINE to existing list  - not this note*
-	  #example </Files>
+   		<File fileId="99999999" filename="mud/distance/dirt_diffuse2dist.png"/>       *ONLY ADD THIS LINE to existing list  - not this note*
+   #example </Files>
     
 	Add this line* to CombinedLayer. Attention check if your map already have the entries shown in layer="". If not copy the entries from an existing one you want as underground when no mud is visible
     
-    #example <Layers>
+   #example <Layers>
          #example <CombinedLayer name="ROUGHDIRT" layers="roughDirt01;roughDirt02;roughDirt03;roughDirt04" noiseFrequency="2"/>
 	      	  <CombinedLayer name="ROUGHDIRT2" layers="roughDirt01;roughDirt02;roughDirt03;roughDirt04" noiseFrequency="2"/>      *ONLY ADD THIS LINE to existing list below rough dirt1  - not this note*
-    #example </LayerCombiner>
+   #example </LayerCombiner>
     
     
 	Add this line* to FoliageMultiLayer 
 
-     #example	<FoliageMultiLayer densityMapId="295" numChannels="10" numTypeIndexChannels="5" compressionChannels="5">
-           #example <FoliageType name="wheat" foliageXmlId="303"/>
-           #example <FoliageType name="grass" foliageXmlId="304"/>
-		    <FoliageType name="dirty" foliageXmlId="99999998"/>		    *ONLY ADD THIS LINE to existing list  - not this note*
-      #example	</FoliageMultiLayer>	
+   #example <FoliageMultiLayer densityMapId="295" numChannels="10" numTypeIndexChannels="5" compressionChannels="5">
+         #example <FoliageType name="wheat" foliageXmlId="303"/>
+         #example <FoliageType name="grass" foliageXmlId="304"/>
+		  <FoliageType name="dirty" foliageXmlId="99999998"/>		    *ONLY ADD THIS LINE to existing list  - not this note*
+   #example </FoliageMultiLayer>	
 		
     
 	Then open the GE and check if
