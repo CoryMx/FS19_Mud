@@ -1,0 +1,73 @@
+Unzip "mud" mod & map(Yourmap) , Open "mud". Open maps folder. copy "mud" and "scripte" folders only NOT id3 (not needed included in readme). 
+
+Unzip map(Yourmap) you want to add mud too, Paste above folders into you (Yourmap/maps) folder.
+
+Map id3 from (Yourmap/maps) and add these lines. Make sure you add them to the proper lists!
+  *Edit id3 with notepad++*
+
+
+	Add these lines to bottom of list.
+   #example <Files>
+    <File fileId="99999998" filename="mud/dirty.xml"/>      *ONLY ADD THIS LINE to existing list  - not this note*
+    <File fileId="99999999" filename="mud/distance/dirt_diffuse2dist.png"/>       *ONLY ADD THIS LINE to existing list  - not this note*
+	  #example </Files>
+    
+	Add this line* to CombinedLayer. Attention check if your map already have the entries shown in layer="". If not copy the entries from an existing one you want as underground when no mud is visible
+    
+    #example <Layers>
+         #example <CombinedLayer name="ROUGHDIRT" layers="roughDirt01;roughDirt02;roughDirt03;roughDirt04" noiseFrequency="2"/>
+	      	        <CombinedLayer name="ROUGHDIRT2" layers="roughDirt01;roughDirt02;roughDirt03;roughDirt04" noiseFrequency="2"/>      *ONLY ADD THIS LINE to existing list below rough dirt1  - not this note*
+    #example </LayerCombiner>
+    
+    
+	Add this line* to FoliageMultiLayer 
+
+     #example	<FoliageMultiLayer densityMapId="295" numChannels="10" numTypeIndexChannels="5" compressionChannels="5">
+           #example <FoliageType name="wheat" foliageXmlId="303"/>
+           #example <FoliageType name="grass" foliageXmlId="304"/>
+					          <FoliageType name="dirty" foliageXmlId="99999998"/>		    *ONLY ADD THIS LINE to existing list  - not this note*
+      #example	</FoliageMultiLayer>	
+		
+    
+	Then open the GE and check if
+	1. no error appear
+	2. you can paint "dirty" shown under foliage layer and state "paintdirty" <- Important or mistake was made above.
+	3. save id3.
+
+
+Open you ModDesc.xml from (Yourmap) folder and add source file line*
+
+	 #example <extraSourceFiles>
+                 <sourceFile filename="maps/scripte/DynamicMud.lua" />       *ONLY ADD THIS LINE to existing list  - not this note*
+	 #example </extraSourceFiles>
+
+
+Open map.xml (Yourmap) and add the groundTypeMapping Line* into the groundTypeMappings section in your map.xml Adjust the layer to the entry you made in map.i3d, also adjust the paintableFoliageId
+	
+	 #example <groundTypeMappings>
+	                	<groundTypeMapping type="dirt2"          layer="ROUGHDIRT2" paintableFoliageId="6" />       *ONLY ADD THIS LINE to existing list  - not this note*
+   #example </groundTypeMappings>
+    
+    
+  Add the paintableFoliage Line* to your paintableFoliages section in your map.xml Adjust the paintableFoliageId to the first free ID
+   
+    #example <paintableFoliages>
+		                 <paintableFoliage id="6" layerName="dirty" firstDensityMapChannel="0" numDensityMapChannels="1" value="1"  />   *ONLY ADD THIS LINE to existing list  - not this note*
+    #example </paintableFoliages>
+	
+*Note icon in ingame paint tool will apear as dirt. the second icon is the mud. 
+** Note mud will only spawn if mostiure levels are low enough, if not it will apear as dirt. 
+this can be edited in scripte/DynamicMud.lua line 53 for season and 57 without seasons. 
+
+Line 140 = DynamicMud.ALWAYS_MUD_CHANNEL = 1
+
+not sure if this can be changed to 0 or 2 for mud all the time ? 
+
+
+
+
+
+
+
+
+
