@@ -8,15 +8,15 @@ Map id3 from (Yourmap/maps) and add these lines. Make sure you add them to the p
 
 	Add these lines to bottom of list.
    #example <Files>
-    <File fileId="99999998" filename="mud/dirty.xml"/>      *ONLY ADD THIS LINE to existing list  - not this note*
-    <File fileId="99999999" filename="mud/distance/dirt_diffuse2dist.png"/>       *ONLY ADD THIS LINE to existing list  - not this note*
+    		<File fileId="99999998" filename="mud/dirty.xml"/>      *ONLY ADD THIS LINE to existing list  - not this note*
+   		 <File fileId="99999999" filename="mud/distance/dirt_diffuse2dist.png"/>       *ONLY ADD THIS LINE to existing list  - not this note*
 	  #example </Files>
     
 	Add this line* to CombinedLayer. Attention check if your map already have the entries shown in layer="". If not copy the entries from an existing one you want as underground when no mud is visible
     
     #example <Layers>
          #example <CombinedLayer name="ROUGHDIRT" layers="roughDirt01;roughDirt02;roughDirt03;roughDirt04" noiseFrequency="2"/>
-	      	        <CombinedLayer name="ROUGHDIRT2" layers="roughDirt01;roughDirt02;roughDirt03;roughDirt04" noiseFrequency="2"/>      *ONLY ADD THIS LINE to existing list below rough dirt1  - not this note*
+	      	  <CombinedLayer name="ROUGHDIRT2" layers="roughDirt01;roughDirt02;roughDirt03;roughDirt04" noiseFrequency="2"/>      *ONLY ADD THIS LINE to existing list below rough dirt1  - not this note*
     #example </LayerCombiner>
     
     
@@ -25,7 +25,7 @@ Map id3 from (Yourmap/maps) and add these lines. Make sure you add them to the p
      #example	<FoliageMultiLayer densityMapId="295" numChannels="10" numTypeIndexChannels="5" compressionChannels="5">
            #example <FoliageType name="wheat" foliageXmlId="303"/>
            #example <FoliageType name="grass" foliageXmlId="304"/>
-					          <FoliageType name="dirty" foliageXmlId="99999998"/>		    *ONLY ADD THIS LINE to existing list  - not this note*
+		    <FoliageType name="dirty" foliageXmlId="99999998"/>		    *ONLY ADD THIS LINE to existing list  - not this note*
       #example	</FoliageMultiLayer>	
 		
     
@@ -37,22 +37,22 @@ Map id3 from (Yourmap/maps) and add these lines. Make sure you add them to the p
 
 Open you ModDesc.xml from (Yourmap) folder and add source file line*
 
-	 #example <extraSourceFiles>
-                 <sourceFile filename="maps/scripte/DynamicMud.lua" />       *ONLY ADD THIS LINE to existing list  - not this note*
-	 #example </extraSourceFiles>
+   #example <extraSourceFiles>
+               	 <sourceFile filename="maps/scripte/DynamicMud.lua" />       *ONLY ADD THIS LINE to existing list  - not this note*
+   #example </extraSourceFiles>
 
 
 Open map.xml (Yourmap) and add the groundTypeMapping Line* into the groundTypeMappings section in your map.xml Adjust the layer to the entry you made in map.i3d, also adjust the paintableFoliageId
 	
-	 #example <groundTypeMappings>
-	                	<groundTypeMapping type="dirt2"          layer="ROUGHDIRT2" paintableFoliageId="6" />       *ONLY ADD THIS LINE to existing list  - not this note*
+   #example <groundTypeMappings>
+	          <groundTypeMapping type="dirt2"          layer="ROUGHDIRT2" paintableFoliageId="6" />       *ONLY ADD THIS LINE to existing list  - not this note*
    #example </groundTypeMappings>
     
     
   Add the paintableFoliage Line* to your paintableFoliages section in your map.xml Adjust the paintableFoliageId to the first free ID
    
     #example <paintableFoliages>
-		                 <paintableFoliage id="6" layerName="dirty" firstDensityMapChannel="0" numDensityMapChannels="1" value="1"  />   *ONLY ADD THIS LINE to existing list  - not this note*
+		   <paintableFoliage id="6" layerName="dirty" firstDensityMapChannel="0" numDensityMapChannels="1" value="1"  />   *ONLY ADD THIS LINE to existing list  - not this note*
     #example </paintableFoliages>
 	
 *Note icon in ingame paint tool will apear as dirt. the second icon is the mud. 
